@@ -29,4 +29,21 @@ public class LineProcessor {
     public void replaceLine(String line, int index) {
         lines.set(index, line);
     }
+
+    public void wordSwapper() {
+
+        for(int i = 0; i < lineCount(); i++) {
+            String line = getLine(i);
+            String[] lineArray = line.split(" ");
+            String firstWord = lineArray[0];
+            StringBuilder swappedLine = new StringBuilder();
+            for(int j = 1; j < lineArray.length; j++) {
+                swappedLine.append(lineArray[j]).append(" ");
+            }
+
+            swappedLine.append(firstWord);
+            replaceLine(swappedLine.toString(), i);
+        }
+
+    }
 }
